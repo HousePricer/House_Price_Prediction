@@ -1,0 +1,7 @@
+Flask
+pymongo
+Flask-Mail
+itsdangerous
+Flask-Session
+cloudinary
+requests

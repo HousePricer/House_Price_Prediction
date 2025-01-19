@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        /* General body styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/026/585/800/small_2x/beautiful-modern-house-exterior-with-carport-modern-residential-district-and-minimalist-building-concept-by-ai-generated-free-photo.jpg');
+            margin: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container styling */
+        .signup-container {
+            max-width: 1200px;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+        }
+
+        /* Image styling */
+        .signup-image {
+            background: url('your-image-url.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .signup-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .signup-image h2 {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Form styling */
+        .signup-form {
+            padding: 40px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .signup-form h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #343a40;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .signup-form label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .signup-form input[type="text"],
+        .signup-form input[type="password"],
+        .signup-form input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            background-color: #f8f9fa;
+            font-size: 0.8rem;
+            color: #495057;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .signup-form input[type="text"]:focus,
+        .signup-form input[type="password"]:focus,
+        .signup-form input[type="file"]:focus {
+            border-color: #6a67ce;
+            box-shadow: 0 0 4px rgba(106, 103, 206, 0.4);
+            background-color: #ffffff;
+        }
+
+        /* Button styling */
+        .signup-form button[type="submit"],
+        .signup-form button[type="button"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #6a67ce, #5d5abc);
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .signup-form button[type="submit"]:hover,
+        .signup-form button[type="button"]:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(106, 103, 206, 0.3);
+        }
+
+        .signup-form button[type="submit"]:active,
+        .signup-form button[type="button"]:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        /* Custom file input */
+        .custom-file-input::before {
+            content: 'Upload File';
+            display: inline-block;
+            background: linear-gradient(135deg, #6a67ce, #5d5abc);
+            padding: 8px 10px;
+            color: #ffffff;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .custom-file-input:hover::before {
+            background: linear-gradient(135deg, #5d5abc, #4c4aa0);
+        }
+
+        /* Password feedback */
+        .password-requirements {
+            font-size: 0.75rem;
+            color: #6c757d;
+            margin-top: 6px;
+        }
+
+        .password-requirements span {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .valid {
+            color: #198754;
+        }
+
+        .invalid {
+            color: #dc3545;
+        }
+
+        /* Media Query for responsiveness */
+        @media (max-width: 768px) {
+            .signup-container {
+                grid-template-columns: 1fr;
+            }
+
+            .signup-image {
+                height: 200px;
+            }
+
+            .signup-form {
+                padding: 20px;
+            }
+
+            .signup-form h1 {
+                font-size: 1.4rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="signup-container">
+    <div class="signup-image">
+        <img src="https://images.timesproperty.com/blog/7714/1718776627_renting_slows.webp" alt="Signup Image">
+    </div>
+    <div class="signup-form">
+        <h1>Sign Up</h1>
+        <form method="POST" enctype="multipart/form-data" action="/registering">
+            <label for="fullname">Full Name:</label>
+            <input type="text" name="fullname" id="fullname" required>
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" required>
+            <button type="button" id="verify-email">Verify</button>
+            
+            <div class="otp-section" id="otp-section">
+                <label for="otp">Enter OTP:</label>
+                <input type="text" id="otp" name="otp">
+                <button type="button" id="verify-otp">Verify OTP</button>
+            </div>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" onkeyup="checkPassword()" required>
+            <div class="password-requirements">
+                <span id="length" class="invalid">Minimum 8 characters</span>
+                <span id="uppercase" class="invalid">At least one uppercase letter</span>
+                <span id="number" class="invalid">At least one number</span>
+                <span id="special" class="invalid">At least one special character (!@#$%^&*)</span>
+            </div>
+
+            <label for="repassword">Re-type Password:</label>
+            <input type="password" name="repassword" id="repassword" onkeyup="check()" required>
+
+            <button type="submit" id="signup-button" disabled>Sign Up</button>
+        </form>
+        <a href="/login">I already have an Account</a>
+    </div>
+</div>
+
+<script>
+function check() {
+    var password = document.getElementById('password');
+    var repassword = document.getElementById('repassword');
+    var signupButton = document.getElementById('signup-button');
+
+    if (password.value === repassword.value && password.value.length > 0) {
+        password.classList.add('match');
+        repassword.classList.add('match');
+        password.classList.remove('mismatch');
+        repassword.classList.remove('mismatch');
+        signupButton.disabled = false;
+    } else {
+        password.classList.add('mismatch');
+        repassword.classList.add('mismatch');
+        password.classList.remove('match');
+        repassword.classList.remove('match');
+        signupButton.disabled = true;
+    }
+}
+
+function checkPassword() {
+    var password = document.getElementById('password').value;
+
+    // Check password length
+    var length = document.getElementById('length');
+    if (password.length >= 8) {
+        length.classList.remove('invalid');
+        length.classList.add('valid');
+    } else {
+        length.classList.remove('valid');
+        length.classList.add('invalid');
+    }
+
+    // Check if there's at least one uppercase letter
+    var uppercase = document.getElementById('uppercase');
+    if (/[A-Z]/.test(password)) {
+        uppercase.classList.remove('invalid');
+        uppercase.classList.add('valid');
+    } else {
+        uppercase.classList.remove('valid');
+        uppercase.classList.add('invalid');
+    }
+
+    // Check if there's at least one number
+    var number = document.getElementById('number');
+    if (/\d/.test(password)) {
+        number.classList.remove('invalid');
+        number.classList.add('valid');
+    } else {
+        number.classList.remove('valid');
+        number.classList.add('invalid');
+    }
+
+    // Check if there's at least one special character
+    var special = document.getElementById('special');
+    if (/[!@#$%^&*]/.test(password)) {
+        special.classList.remove('invalid');
+        special.classList.add('valid');
+    } else {
+        special.classList.remove('valid');
+        special.classList.add('invalid');
+    }
+}
+
+document.getElementById('verify-email').addEventListener('click', function() {
+    const email = document.getElementById('email').value;
+    fetch('/send_otp', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+    }).then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              document.getElementById('otp-section').style.display = 'block';
+              alert('OTP sent to your email!');
+              document.getElementById('verify-email').disabled = true;
+              document.getElementById('email').readOnly = true;
+          } else {
+              alert('Error sending OTP: ' + data.message);
+          }
+      });
+});
+
+document.getElementById('verify-otp').addEventListener('click', function() {
+    const email = document.getElementById('email').value;
+    const otp = document.getElementById('otp').value;
+    fetch('/verify_otp', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, otp })
+    }).then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              document.getElementById('otp').disabled = true;
+              document.getElementById('verify-otp').disabled = true;
+              document.getElementById('signup-button').disabled = false;
+              alert('OTP verified! You can now sign up.');
+          } else {
+              alert('Invalid OTP: ' + data.message);
+          }
+      });
+});
+</script>
+</body>
+</html>

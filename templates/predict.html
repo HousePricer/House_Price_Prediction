@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+    
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://www.homebazaar.com/knowledge/wp-content/uploads/2022/09/FeatureImage_Best-12-Single-Floor-House-Design.jpg');
+            margin: 0;
+            
+            background-size: cover;
+            padding: 0;
+            color: #333;
+        }
+    
+        /* Navbar Styles */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: rgb(255, 255, 255); /* Glass effect */
+            backdrop-filter: blur(10px); /* Blur effect */
+            -webkit-backdrop-filter: blur(10px);
+        }
+    
+        .navbar-brand img {
+            height: 50px;
+        }
+    
+        .navbar-nav .nav-link {
+            color: #333;
+            font-weight: 500;
+        }
+    
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+    
+        .navbar-nav .nav-item.active .nav-link {
+            color: #007bff !important;
+        }
+    
+        .btn-primary, .btn-secondary {
+            border-radius: 20px;
+            font-weight: 500;
+            padding: 8px 20px;
+        }
+    
+        .nav-item a {
+            color: #333;
+        }
+    
+        /* Content Box Styles */
+        .content-box {
+            background: rgba(255, 255, 255, 0.7); /* Glass effect */
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Depth shadow */
+            margin: 40px auto;
+            padding: 40px;
+            text-align: left;
+            width: 80%;
+            max-width: 700px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+        }
+    
+        .content-box h1 {
+            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: 600;
+            color: #333;
+        }
+    
+        form label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+    
+        form input, form select {
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.6);
+            color: #333;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+    
+        form input[type="submit"] {
+            background: linear-gradient(135deg, #333, #555);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        form input[type="submit"]:hover {
+            background: linear-gradient(135deg, red, #ff5757);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+        }
+    
+        /* House List Section */
+        .house-list {
+            margin-top: 30px;
+        }
+    
+        .house {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    
+        .house img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    
+        .house p {
+            font-size: 14px;
+            margin: 8px 0;
+        }
+    
+        .house button {
+            margin-top: 10px;
+        }
+    
+/* Currency Converter Section */
+.currency-converter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1); /* Transparent background for container */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    margin-top: 30px;
+    backdrop-filter: blur(12px); /* Apply glassmorphism blur */
+    -webkit-backdrop-filter: blur(12px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Form styling with Glassmorphism */
+.currency-converter form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Slight transparency for the form */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px); /* Apply blur effect to the form */
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Border with transparency */
+}
+
+/* Input and select fields with Glassmorphism */
+.currency-converter input,
+.currency-converter select {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Light border for inputs */
+    background: rgba(255, 255, 255, 0.15); /* Slightly transparent background */
+    backdrop-filter: blur(6px); /* Apply blur effect */
+    color: white; /* White text for input */
+    font-size: 16px;
+}
+
+/* Button with hover effect */
+.currency-converter button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.currency-converter button:hover {
+    background-color: #0056b3; /* Darken button on hover */
+}
+
+/* Conversion result styling */
+.currency-converter .result {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #f8f9fa; /* Light text color */
+}
+
+    
+        iframe {
+            display: none;
+        }
+        .postPropertyButton{
+            margin-bottom: 3px;
+            background-color: rgb(247, 247, 247);
+    color: rgb(28, 153, 255);
+    border: 1px solid rgb(0, 149, 255);
+    border-radius: 5px;
+    margin-left: 10px;
+    height: 50px;
+        }
+        .postPropertyButton:hover{
+    background-color: #ececec;
+    color: rgb(43, 96, 255);
+}
+    </style>
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="https://i.postimg.cc/VNcBWXtX/bgv-D81726901741.png" alt="Logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#rent">Rent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#buy">Buy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#pg">PG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/predict_price" id="navItem4">Predict Price</a>
+                    </li>
+                    <a class="nav-link" href="/postproperty" id="navItem4"><button id="post" class="postPropertyButton">Post Property</button></a>
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-box">
+        <div id="google_translate_element" class="container text-center mt-5"></div>
+        <h1>House Price Prediction</h1>
+
+        <form id="prediction-form">
+            <label for="total_area">Total Area (SQFT):</label>
+            <input type="number" id="total_area" name="total_area" min="70" max="35000" required>
+
+            <label for="price_per_sqft">Price per SQFT:</label>
+            <input type="number" id="price_per_sqft" name="price_per_sqft" min="1000" max="999000" required>
+
+            <label for="total_rooms">Total Rooms:</label>
+            <select id="total_rooms" name="total_rooms" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+
+            <label for="balcony">Balcony:</label>
+            <select id="balcony" name="balcony" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="city">City:</label>
+            <select id="city" name="city" required>
+                <option value="Chennai">Chennai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Pune">Pune</option>
+                <option value="New Delhi">New Delhi</option>
+            </select>
+
+            <label for="property_type">Property Type:</label>
+            <select id="property_type" name="property_type" required>
+                <option value="House">House</option>
+                <option value="Flat">Flat</option>
+            </select>
+
+            <label for="bhk">BHK:</label>
+            <select id="bhk" name="bhk" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <a href="{{ url_for('history') }}">View Prediction History</a>
+            <input type="submit" value="Predict">
+        </form>
+
+        <div id="prediction-result" style="margin-top: 20px;"></div>
+
+        <h1>House List</h1>
+        <div class="house-list" id="house-list"></div>
+    </div>
+
+    <!-- Currency Converter Section -->
+    <!-- Currency Converter Section -->
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card" style="border-radius: 10px; width: 100%; max-width: 600px;">
+        <div class="card-body">
+            <h2 class="card-title text-center">Currency Converter</h2>
+            <form id="currency-form">
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="from-currency">From Currency:</label>
+                    <select id="from-currency" name="from-currency" required class="form-control">
+                        <option value="INR">INR</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="AUD">AUD</option>
+                        <option value="CAD">CAD</option>
+                        <option value="JPY">JPY</option>
+                        <option value="CHF">CHF</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="to-currency">To Currency:</label>
+                    <select id="to-currency" name="to-currency" required class="form-control">
+                        <option value="INR">INR</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="AUD">AUD</option>
+                        <option value="CAD">CAD</option>
+                        <option value="JPY">JPY</option>
+                        <option value="CHF">CHF</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Convert</button>
+            </form>
+            <div class="result mt-3" id="conversion-result"></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // House Prediction Form Submission (existing code)
+    document.getElementById('prediction-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch('/predict', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display Prediction Result
+            document.getElementById('prediction-result').innerHTML = `<h2>Prediction Result: ${data.result}</h2>`;
+
+            // Clear previous houses if any
+            const houseList = document.getElementById('house-list');
+            houseList.innerHTML = '';
+
+            // Check if there are houses in the response
+            if (data.houses && data.houses.length > 0) {
+                data.houses.forEach(house => {
+                    const houseItem = document.createElement('div');
+                    houseItem.classList.add('house');
+                    houseItem.innerHTML = `
+                        <div class="house-image">
+                            <img src="${house.image}" alt="House Image">
+                        </div>
+                        <div class="house-details">
+                            <p><strong>Price: </strong>${house.price}</p>
+                            <p><strong>Location: </strong>${house.location}</p>
+                            <p><strong>Size: </strong>${house.size} sqft</p>
+                            <p><strong>Bedrooms: </strong>${house.bedrooms}</p>
+                            <p><strong>Bathrooms: </strong>${house.bathrooms}</p>
+                            <p><strong>Year Built: </strong>${house.yearBuilt}</p>
+                            <p><strong>Description: </strong>${house.description}</p>
+                            <button class="btn btn-primary">More Details</button>
+                        </div>
+                    `;
+                    houseList.appendChild(houseItem);
+                });
+            } else {
+                houseList.innerHTML = '<p>No houses found</p>';
+            }
+        })
+        .catch(error => {
+            document.getElementById('prediction-result').innerHTML = `<h2>Error: ${error}</h2>`;
+        });
+    });
+
+    // Currency Converter Functionality
+    document.getElementById('currency-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const amount = document.getElementById('amount').value;
+        const fromCurrency = document.getElementById('from-currency').value;
+        const toCurrency = document.getElementById('to-currency').value;
+
+        if (!amount || fromCurrency === toCurrency) {
+            return;
+        }
+
+        // Conversion rates
+        const conversionRates = {
+            INR: {
+                USD: 0.012,
+                EUR: 0.011,
+                GBP: 0.0096,
+                AUD: 0.018,
+                CAD: 0.016,
+                JPY: 1.61,
+                CHF: 0.011,
+                INR: 1
+            },
+            USD: {
+                INR: 83.14,
+                EUR: 0.91,
+                GBP: 0.80,
+                AUD: 1.43,
+                CAD: 1.32,
+                JPY: 133.75,
+                CHF: 0.93,
+                USD: 1
+            },
+            EUR: {
+                INR: 89.16,
+                USD: 1.10,
+                GBP: 0.88,
+                AUD: 1.57,
+                CAD: 1.45,
+                JPY: 146.48,
+                CHF: 1.03,
+                EUR: 1
+            },
+            GBP: {
+                INR: 103.57,
+                USD: 1.25,
+                EUR: 1.14,
+                AUD: 1.79,
+                CAD: 1.64,
+                JPY: 166.93,
+                CHF: 1.17,
+                GBP: 1
+            },
+            AUD: {
+                INR: 55.31,
+                USD: 0.70,
+                EUR: 0.64,
+                GBP: 0.56,
+                CAD: 0.92,
+                JPY: 93.20,
+                CHF: 0.66,
+                AUD: 1
+            },
+            CAD: {
+                INR: 62.83,
+                USD: 0.76,
+                EUR: 0.69,
+                GBP: 0.61,
+                AUD: 1.09,
+                JPY: 101.11,
+                CHF: 0.72,
+                CAD: 1
+            },
+            JPY: {
+                INR: 0.62,
+                USD: 0.0075,
+                EUR: 0.0068,
+                GBP: 0.006,
+                AUD: 0.011,
+                CAD: 0.0099,
+                CHF: 0.0065,
+                JPY: 1
+            },
+            CHF: {
+                INR: 91.23,
+                USD: 1.08,
+                EUR: 0.97,
+                GBP: 0.86,
+                AUD: 1.52,
+                CAD: 1.39,
+                JPY: 153.81,
+                CHF: 1
+            }
+        };
+
+        // Perform the conversion
+        const result = (amount * conversionRates[fromCurrency][toCurrency]).toFixed(2);
+        document.getElementById('conversion-result').innerHTML = `Converted Amount: ${result} ${toCurrency}`;
+    });
+</script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {
+                pageLanguage: 'en',
+                includedLanguages: 'zh-CN,cs,da,nl,en,et,fr,hi,te'
+            }, 
+            'google_translate_element'
+        );
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

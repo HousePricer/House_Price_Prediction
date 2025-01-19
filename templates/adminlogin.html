@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* General body styling with background gradient */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://alive-studio.in/wp-content/uploads/2023/04/Bungalow.jpg'); /* Gradient background */
+            color: #ffffff;
+        }
+
+        /* Centering the form */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for modern effect */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .form-container:hover {
+            transform: scale(1.02); /* Slight scale effect on hover */
+        }
+
+        /* Label styling */
+        label {
+            font-size: 1.1rem;
+            color: #2C3E50; /* Dark blue text color */
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        /* Input field styling */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: #f7f7f7; /* Light gray background for inputs */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #3498DB; /* Blue border color on focus */
+            outline: none;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5); /* Soft blue shadow */
+        }
+
+        /* Button styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+            color: white;
+            background-color: #2ecc71; /* Fresh green */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button:hover {
+            background-color: #27ae60; /* Darker green on hover */
+            transform: translateY(-2px); /* Slight lift effect on hover */
+        }
+
+        button:active {
+            transform: translateY(0); /* Button snaps back when clicked */
+        }
+
+        /* Icon styling */
+        i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Small tweaks for mobile responsiveness */
+        @media (max-width: 600px) {
+            .form-container {
+                width: 90%;
+                padding: 30px;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form method="POST" action="/adminlogging">
+            <label for="username"><i class="fas fa-user"></i> ID:</label>
+            <input type="text" name="id" id="username" required><br>
+            
+            <label for="password"><i class="fas fa-lock"></i> Password:</label>
+            <input type="password" name="password" id="password" required><br>
+            
+            <button type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            top: 0px !important; 
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #555;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+
+        .btn-primary, .btn-secondary {
+            border-radius: 20px;
+            font-weight: 500;
+            padding: 8px 20px;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .profile-section .card {
+            border-radius: 15px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background: linear-gradient(145deg, #ffffff, #f3f3f3);
+        }
+
+        /* Property Section */
+        .property-section {
+            margin-top: 30px;
+        }
+
+        .property-card {
+            display: flex;
+            background-color: #ffffff;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .property-card img {
+            width: 150px;
+            object-fit: cover;
+        }
+
+        .property-details {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .property-actions {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .status {
+            padding: 6px 12px;
+            font-size: 14px;
+            color: #fff;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .status.verified {
+            background-color: #28a745;
+        }
+
+        .status.in-review {
+            background-color: #f0ad4e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .property-card {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .property-card img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .property-actions {
+                width: 100%;
+                align-items: center;
+            }
+        }
+
+
+iframe{
+    display: none;
+}
+
+
+    </style>
+</head>
+<body>
+   
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="https://i.postimg.cc/VNcBWXtX/bgv-D81726901741.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#rent">Rent</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#buy">Buy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#pg">PG</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/predict_price">Predict Price</a></li>
+                    <button id="post" class="btn btn-primary mr-2">Post Property</button>
+                    <button id="logout" class="btn btn-secondary">Logout</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Google Translate Dropdown -->
+   
+
+    <!-- Profile Section -->
+    <div class="profile-section container">
+        <div class="card">
+            <h5 class="mb-1">{{ user.fullname }}</h5>
+            <p>{{ user.email }}</p>
+            <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
+            <div id="google_translate_element" class="container text-center mt-5"></div>
+        </div>
+    </div>
+
+    <!-- Property Section -->
+    <div class="property-section container">
+        <h3 class="text-center mb-4">Your Properties</h3>
+        {% for property in user.Your_Properties %}
+        <div class="property-card">
+            <img src="{{ property.image_urls[0] }}" alt="Property Image">
+            <div class="property-details">
+                <h5>{{ property.Title }}</h5>
+                <p><strong>Purpose:</strong> {{ property.purpose }}</p>
+                <p><strong>Price:</strong> ₹{{ property.pricefrom }} - ₹{{ property.priceto }} per year</p>
+                <p><strong>Location:</strong> {{ property.city }}, {{ property.state }}</p>
+            </div>
+            <div class="property-actions">
+                <span class="status {% if property.verified %}verified{% else %}in-review{% endif %}">
+                    {% if property.verified %}Verified{% else %}In Review{% endif %}
+                </span>
+                <form action="/delete_property/{{ property._id }}" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Password Changer Modal -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/change_password" method="POST">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="changePasswordLabel">Change Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" class="form-control" id="currentPassword" name="current_password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" class="form-control" id="newPassword" name="new_password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="newPassword" name="confirm_password" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Change Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('logout').onclick = () => window.location.href = "/logout";
+        document.getElementById('post').onclick = () => window.location.href = "/postproperty";
+        
+    </script>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {
+                pageLanguage: 'en',
+                includedLanguages: 'zh-CN,cs,da,nl,en,et,fr,hi,te'
+            }, 
+            'google_translate_element'
+        );
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

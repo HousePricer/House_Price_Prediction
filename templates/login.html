@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+    
+    /* General body styling */
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-image: url('https://static.vecteezy.com/system/resources/thumbnails/026/585/800/small_2x/beautiful-modern-house-exterior-with-carport-modern-residential-district-and-minimalist-building-concept-by-ai-generated-free-photo.jpg');
+        margin: 0;
+        padding: 0;
+        display: flex;
+        background-repeat: no-repeat;
+        background-size: cover;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .food-munch-logo {
+    width: 145px;
+    height: 55px;
+    margin-top: 6px;
+  
+}
+.navbar{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+#navItem1:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem2:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem3:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem4:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem1 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem2 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem3 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem4 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+    /* Container styling */
+    .login-container {
+            max-width: 1200px;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+        }
+
+        /* Image styling */
+        .login-image {
+            background: url('your-image-url.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .login-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .login-image h2 {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Form styling */
+        .login-form {
+            padding: 40px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-form h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #343a40;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-form label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            background-color: #f8f9fa;
+            font-size: 0.8rem;
+            color: #495057;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-form input[type="text"]:focus,
+        .login-form input[type="password"]:focus {
+            border-color: #6a67ce;
+            box-shadow: 0 0 4px rgba(106, 103, 206, 0.4);
+            background-color: #ffffff;
+        }
+
+        /* Button styling */
+        .login-form button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #6a67ce, #5d5abc);
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .login-form button[type="submit"]:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(106, 103, 206, 0.3);
+        }
+
+        .login-form button[type="submit"]:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        /* Media Query for responsiveness */
+        @media (max-width: 768px) {
+            .login-container {
+                grid-template-columns: 1fr;
+            }
+
+            .login-image {
+                height: 200px;
+            }
+
+            .login-form {
+                padding: 20px;
+            }
+
+            .login-form h1 {
+                font-size: 1.4rem;
+            }
+        }
+
+
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%;
+        border: 1px solid #a2a2a2;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-content h2 {
+        text-align: center;
+        color: #4a90e2;
+    }
+
+    .modal-content input[type="email"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .modal-content button {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4a90e2;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .modal-content button:hover {
+        background-color: #357abd;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover {
+        color: black;
+        cursor: pointer;
+    }
+    .flash-messages {
+        margin-bottom: 20px;
+    }
+
+    .flash-message {
+        padding: 10px;
+        border-radius: 5px;
+        color: #ff0000;
+    }
+
+    .flash-message.success {
+        background-color: #4caf50; /* Green */
+    }
+
+    .flash-message.error {
+        background-color: #f44336; /* Red */
+    }
+    .logoutbutton{
+    margin-left: 5px;
+    background-color: #fbfbfb;
+    border: 1px solid rgb(0, 128, 255);
+    color: rgb(0, 139, 225);
+    border-radius: 5px;
+}
+.logoutbutton:hover{
+    background-color: #ececec;
+    color: #357abd;
+}
+/* Style for the "Forgot Password" button */
+.forgot-password-btn {
+    text-decoration: underline;
+    margin-top: 3px;
+    background-color: #ffffff; /* Green background */
+    color: rgb(4, 110, 210); /* White text */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.forgot-password-btn:hover {
+    background-color: #ffffff; /* Darker green on hover */
+}
+
+/* The popup modal container */
+.popup-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Popup content box */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Close button for the popup */
+.close-btn {
+    background-color: #ffffff; /* Red background */
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    float: right;
+}
+
+.close-btn:hover {
+    background-color: #e9e9e9; /* Darker red on hover */
+}
+
+/* Style for the email input field */
+.email-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Submit button for the popup */
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+</style>
+</head>
+<body>
+    <div id="sectionmain"></div>
+        <nav class="navbar navbar-expand-lg navbar-light  fixed-top bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="https://i.imghippo.com/files/bgvD81726901741.png" class="food-munch-logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-link active" id="navItem1" href="#reviewsSection">
+                            Reviews
+                            <span class="sr-only">(current)</span>
+                        </a>
+                        <a class="nav-link" href="#rent" id="navItem2">Rent</a>
+                        <a class="nav-link" href="#buy" id="navItem3">Buy</a>
+             
+                        <a class="nav-link" href="#pg" id="navItem4">PG</a>
+                        <button id="login" class="logoutbutton">Login</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+   <div class="login-container">
+    <div class="login-image">
+        <img src="https://www.shutterstock.com/image-photo/buy-rent-home-concept-real-600nw-2458819857.jpg" alt="Login Image">
+    </div>
+    <div class="login-form">
+        <h1>Login</h1>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="/logging">
+            <label for="username"><i class="fas fa-user"></i> Email:</label>
+            <input type="text" name="email" id="username" required><br>
+            <label for="password"><i class="fas fa-lock"></i> Password:</label>
+            <input type="password" name="password" id="password" required><br>
+            <button type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+        </form>
+        <!-- Help link for login -->
+        <a href="#" id="signup"><i class="fas fa-question-circle"></i> I don't have account</a>
+        <!-- Frontend button to trigger forgot password -->
+<!-- Forgot Password Button -->
+<button class="forgot-password-btn" onclick="showForgotPasswordPopup()">Forgot Password?</button>
+
+<!-- Forgot Password Popup -->
+<div class="popup-container" id="forgot-password-popup">
+    <div class="popup-content">
+        <!-- Close Button -->
+        <button class="close-btn" onclick="closeForgotPasswordPopup()">X</button>
+        
+        <h3>Forgot Password</h3>
+        <input type="email" id="forgot-password-email" class="email-input" placeholder="Enter your email" />
+        <button class="submit-btn" onclick="sendOtpRequest()">Send OTP</button>
+    </div>
+</div>
+
+<!-- OTP and New Password Popup -->
+<div class="popup-container" id="otp-new-password-popup">
+    <div class="popup-content">
+        <!-- Close Button -->
+        <button class="close-btn" onclick="closeOtpAndNewPasswordPopup()">X</button>
+        
+        <h3>Reset Your Password</h3>
+        <input type="email" id="otp-email" class="email-input" placeholder="Email" disabled />
+        <input type="text" id="otp" class="email-input" placeholder="Enter OTP" />
+        <input type="password" id="new-password" class="email-input" placeholder="Enter new password" />
+        <button class="submit-btn" onclick="submitNewPassword()">Reset Password</button>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<!-- The Modal -->
+
+</body>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var helpLink = document.getElementById("signup");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the help link, open the modal
+    helpLink.onclick = function () {
+    window.location.href = "/signup";
+    }
+
+    document.getElementById('login').onclick = ()=>{
+        window.location.href = "/login"
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+   // Show the "Forgot Password" popup
+function showForgotPasswordPopup() {
+    document.getElementById('forgot-password-popup').style.display = 'flex';
+}
+
+// Close the "Forgot Password" popup
+function closeForgotPasswordPopup() {
+    document.getElementById('forgot-password-popup').style.display = 'none';
+}
+
+// Send OTP request
+function sendOtpRequest() {
+    var email = document.getElementById('forgot-password-email').value;
+    if (!email) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    // Send email for OTP
+    fetch('/forgot_password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'email': email })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('OTP sent to your email!');
+            showOtpAndNewPasswordPopup(email);
+        } else {
+            alert('Failed to send OTP: ' + data.message);
+        }
+    })
+    .catch(error => alert('Error: ' + error));
+}
+
+// Show OTP and New Password Input
+function showOtpAndNewPasswordPopup(email) {
+    document.getElementById('otp-new-password-popup').style.display = 'flex';
+    document.getElementById('otp-email').value = email;  // Auto fill the email
+}
+
+// Submit OTP and New Password
+function submitNewPassword() {
+    var email = document.getElementById('otp-email').value;
+    var otp = document.getElementById('otp').value;
+    var newPassword = document.getElementById('new-password').value;
+
+    if (!otp || !newPassword) {
+        alert('Please enter the OTP and new password.');
+        return;
+    }
+
+    // Send the OTP and new password for resetting
+    fetch('/reset_password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            'email': email,
+            'otp': otp,
+            'new_password': newPassword
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Password reset successfully!');
+            closeOtpAndNewPasswordPopup();
+        } else {
+            alert('Failed to reset password: ' + data.message);
+        }
+    })
+    .catch(error => alert('Error: ' + error));
+}
+
+// Close the OTP and New Password popup
+function closeOtpAndNewPasswordPopup() {
+    document.getElementById('otp-new-password-popup').style.display = 'none';
+}
+
+
+
+</script>

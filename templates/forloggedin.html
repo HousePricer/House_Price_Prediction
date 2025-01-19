@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+    .food-munch-logo {
+    width: 145px;
+    height: 55px;
+    margin-top: 6px;
+  
+}
+.navbar{
+    box-shadow: 2px 2px 10px rgb(0,0,0,0.3);
+}
+#navItem1:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem2:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem3:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem4:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem1 {
+    padding-left: 10px;
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem2 {
+    padding-left: 10px;
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem3 {
+    padding-left: 10px;
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem4 {
+    padding-left: 10px;
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+.banner-section-bg-container {
+    background-size: cover;
+
+}
+
+.banner-heading {
+    color: white;
+    font-family: "Roboto";
+    font-size: 45px;
+    font-weight: 300;
+}
+
+.banner-caption {
+    color: #f5f7fa;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.custom-button {
+    color: white;
+    background-color: #d0b200;
+    width: 130px;
+    height: 45px;
+    border-width: 0;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.custom-outline-button {
+    color: white;
+    background-color: transparent;
+    width: 130px;
+    height: 45px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d0b200;
+    border-radius: 8px;
+}
+
+.custom-outline-button:hover {
+    background-color: #d0b200;
+}
+
+.custom-button:hover {
+    background-color: #d19e04;
+}
+
+.wcu-section {
+    background: linear-gradient(to left, white, white);
+}
+
+.wcu-section-heading {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.wcu-section-description {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+.wcu-section-card1 {
+    background-color: #f7f3e1;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e0bb34;
+    border-radius: 16px;
+}
+
+.wcu-section-card1:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.wcu-section-card2 {
+    background-color: #e6fae7;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #59a864;
+    border-radius: 16px;
+}
+
+.wcu-section-card2:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.wcu-section-card3 {
+    background-color: #fdedff;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #490652;
+    border-radius: 16px;
+}
+
+.wcu-section-card3:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.wcu-section-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 60px;
+}
+
+.card-heading {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.card-description {
+    font-family: "Roboto";
+    color: #5a7184;
+    font-size: 16px;
+}
+
+.offers {
+    font-family: "Roboto";
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 800;
+    color: black;
+}
+
+.menu-section {
+    background: radial-gradient(#c0c1c2, #e1eaf2);
+}
+
+.loginbuttonnav {
+    background-color: #313332;
+    color: white;
+    margin-top: 3px;
+    height: 35px;
+    width: 80px;
+    border-color: #313332;
+    border-width: 0px;
+    border-radius: 4px;
+}
+
+.loginbuttonnav:hover {
+    background-color: #4d4d4d;
+}
+.loginbuttonnav2 {
+    background-color: #313332;
+    color: white;
+    margin-top: 3px;
+    height: 35px;
+    width: 80px;
+    border-color: #313332;
+    border-width: 0px;
+    border-radius: 4px;
+}
+
+.loginbuttonnav2:hover {
+    background-color: #4d4d4d;
+}
+
+
+.explore-section-heading {
+    color: #241414;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.menu-section-image {
+    border-radius: 16px;
+}
+
+.card-heading {
+    font-family: "Roboto";
+    font-size: 18px;
+    color: #323f4b;
+    font-weight: 500;
+    margin-top: 24px;
+}
+
+.menu-link {
+    color: #d0b200;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.menu-card {
+    border-radius: 16px;
+    background-color: white;
+}
+
+.menu-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.healthy-food-section {
+    background: linear-gradient(to right, white, rgb(235, 235, 235));
+}
+
+.healthy-food-title {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.healthy-food-description {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+.healthy-food-section-img {
+    width: 270px;
+}
+
+.healthy-food-button {
+    background-color: #d0b200;
+    color: white;
+    border-width: 0px;
+    border-radius: 10px;
+    width: 130px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.healthy-food-button:hover {
+    background-color: #d19e04;
+}
+
+.delivery-pay-section {
+    background: linear-gradient(to left, rgb(212, 212, 212), rgb(255, 255, 255));
+}
+
+.delivery-image {
+    width: 270px;
+}
+
+.delivery-title {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.delivery-title-description {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+.delivery-title-button {
+    color: white;
+    background-color: #d0b200;
+    width: 130px;
+    height: 45px;
+    border-radius: 8px;
+    border-width: 0px;
+    margin-right: 10px;
+}
+
+.delivery-title-button:hover {
+    background-color: #d19e04;
+}
+
+.payment-card-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 28px;
+}
+
+.thanking-customer-section {
+    background: linear-gradient(to left, #ffeeb5, #fff7b8);
+}
+
+.thanking-customers-section-heading {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.thanking-customers-section-description {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+.thanking-customers-section-img {
+    width: 270px;
+    margin-bottom: 20px;
+}
+
+.redem-gift {
+    color: white;
+    background-color: #d0b200;
+    border-width: 0px;
+    border-radius: 8px;
+    width: 130px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.redem-gift:hover {
+    background-color: #d19e04;
+}
+
+.follow-us-heading {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.follow-us-section {
+    background: linear-gradient(to left, rgb(255, 251, 251), white);
+}
+
+.icons {
+    background-color: #faf7e8;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    border-width: 0px;
+    padding-left: 22px;
+    padding-right: 16px;
+    padding-top: 22px;
+    padding-bottom: 14px;
+    margin: 15px;
+}
+
+.icon {
+    color: #d0b200;
+    font-size: 35px;
+}
+
+#oneicon:hover {
+    color: #4f90f7;
+}
+
+#twoicon:hover {
+    color: #c20ab2;
+}
+
+#thirdicon:hover {
+    color: #4f90f7;
+}
+
+.footer-section {
+    background-color: #0b1a26;
+}
+
+.footer-section-mail-id {
+    color: #959ead;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.footer-section-address {
+    color: #959ead;
+    font-family: "Roboto";
+    font-size: 14px;
+}
+.bg-container-coloring {
+    background-image: url('https://img.freepik.com/free-vector/paper-style-dynamic-lines-background_23-2149001469.jpg?w=1380&t=st=1690910308~exp=1690910908~hmac=3b294b0c0832aee4b450588db517a818d5b5a007868e5a23079757978d5e1e78');
+    background-size: cover;
+    height: 100vh;
+}
+
+.card-heading-texting {
+    font-family: "Roboto";
+    font-size: 45px;
+    color: #323f4b;
+    font-weight: 600;
+    padding-top: 20px;
+}
+
+.inputsection {
+    margin-top: 60px;
+}
+
+.menu-card-design {
+    margin-top: 130px;
+    border-radius: 16px;
+    background-color: white;
+    width: 450px;
+    height: 450px;
+    border-width: 1px;
+}
+
+.menu-card-design:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    border-top: 2px solid #202e45;
+    border-left: 2px solid #0a2a5e;
+}
+
+.inputfield {
+    height: 70px;
+    width: 350px;
+    border: 1px solid #bab8b8;
+}
+
+.inputfield2 {
+    margin-top: 30px;
+    height: 70px;
+    width: 350px;
+    border: 1px solid #bab8b8;
+}
+
+.buttonlogin {
+    margin-top: 30px;
+    height: 60px;
+    width: 150px;
+    background-color: #228af2;
+    color: white;
+    border-width: 0px;
+}
+
+.buttonlogin:hover {
+    background-color: #08529c;
+}
+
+.inputfield2:hover {
+    border-color: #3e5ede;
+}
+
+.inputfield:hover {
+    border-color: #3e5ede;
+}
+
+.buttonback {
+    background-color: #48628c;
+    height: 60px;
+    width: 150px;
+    color: white;
+    border-width: 0px;
+}
+
+.buttonback:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid #48628c;
+}
+
+
+.bg-container-signup {
+    background-image: url('https://img.freepik.com/free-vector/paper-style-dynamic-lines-background_23-2149001469.jpg?w=1380&t=st=1690910308~exp=1690910908~hmac=3b294b0c0832aee4b450588db517a818d5b5a007868e5a23079757978d5e1e78');
+    background-size: cover;
+    height: 100vh;
+}
+
+
+
+.menu-card-design-singup {
+    margin-top: 130px;
+    border-radius: 16px;
+    background-color: white;
+    width: 650px;
+    height: auto;
+    border-width: 1px;
+}
+
+.usernamedesc {
+    font-family: "Roboto";
+    font-size: 20px;
+}
+
+.inputfield-singup {
+    height: 40px;
+    width: 220px;
+    margin-left: 55px;
+    border: 1px solid #0b66a3;
+}
+
+.usernamedesc2 {
+    padding-left: 2px;
+    font-family: "Roboto";
+    font-size: 20px;
+}
+
+.inputfield2-singup {
+    margin-top: 10px;
+    height: 40px;
+    width: 220px;
+    margin-left: 19px;
+    border: 1px solid #0b66a3;
+}
+
+.usernamedesc3 {
+    padding-left: 2px;
+    font-family: "Roboto";
+    font-size: 20px;
+}
+
+.inputfield3-singup {
+    margin-top: 10px;
+    height: 40px;
+    width: 220px;
+    border: 1px solid #0b66a3;
+}
+
+.buttonsinup {
+    margin-top: 30px;
+    height: 60px;
+    width: 150px;
+    background-color: #228af2;
+    color: white;
+    border-width: 0px;
+}
+
+.buttonsinup:hover {
+    background-color: #08529c;
+}
+
+.buttonback {
+    background-color: #48628c;
+    height: 60px;
+    width: 150px;
+    color: white;
+    border-width: 0px;
+}
+
+.buttonback:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid #48628c;
+}
+.logoutbutton{
+    margin-left: 15px;
+    background-color: #f7f7f7;
+    border: 1px solid rgb(0, 149, 255);
+    color: rgb(0, 102, 204);
+    border-radius: 10px;
+}
+.postPropertyButton{
+    background-color: rgb(247, 247, 247);
+    color: rgb(28, 153, 255);
+    border: 1px solid rgb(0, 149, 255);
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.profileButton{
+    background-color: rgb(245, 245, 245);
+    color: rgb(0, 106, 206);
+    border: 1px solid rgb(0, 83, 199);
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    border-radius: 50%; 
+    margin-left: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the icon */
+    cursor: pointer;
+}
+.postPropertyButton:hover{
+    background-color: #ececec;
+    color: rgb(43, 96, 255);
+}
+.logoutbutton:hover{
+    background-color: #efefef;
+    color: rgb(2, 85, 157);
+}
+.profileButton:hover{
+    background-color: #edeeee;
+    color: rgb(0, 94, 182);
+}
+.card{
+    box-shadow: 2px 2px 10px rgb(0,0,0,0.2);
+}
+.searchcontainer {
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    margin-left: 220px;
+    padding: 30px;
+    color: rgb(0, 0, 0);
+    width: 70%;
+    background-image: url('https://cdn.prod.website-files.com/63a02e61e7ffb565c30bcfc7/65fa5e6535ec537dc53bd0d1_modern%20house%20ideas.webp'); /* Gradient background */
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.searchcontainer:hover {
+    box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.3);
+    /* Subtle scale on hover */
+}
+
+.form-control {
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    color: black;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.form-control:focus {
+    border-color: #28a745; /* Green border on focus */
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5); /* Glowing effect on focus */
+    outline: none; /* Remove default outline */
+}
+
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    transform: translateY(-2px); /* Slight upward movement on hover */
+}
+
+.btn-primary:active {
+    transform: translateY(1px); /* Slight downward movement on click */
+}
+.card{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.carousel-caption h5 {
+    font-size: 5rem; /* Adjust the size as needed */
+    font-weight: bold; /* Make the text bold */
+    
+}
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    bottom: 20px;
+   text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: center;
+    justify-content: center;
+}
+
+
+.carousel-caption p {
+    font-size: 2rem; /* Adjust the size as needed */
+    
+    
+}
+.carousel-item img {
+    height: 600px; /* Set the desired smaller height for the images */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+#suggestions {
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+            background: #fff;
+            position: absolute;
+            width: 200px;
+            color: #000000;
+        }
+        #suggestions div {
+            padding: 8px;
+            cursor: pointer;
+        }
+        #suggestions div:hover {
+            background: #4a4848;
+            color: white;
+        }
+        /* Style for the form group containing the dropdown */
+/* Style for the form group containing the dropdown */
+.form-group {
+    margin-bottom: 20px; /* Space between form elements */
+}
+
+/* Style for the label */
+.form-group label {
+    font-weight: bold; /* Bold text for labels */
+    margin-bottom: 5px; /* Space below label */
+    display: block; /* Block display to take up full width */
+    color: #ffffff; /* Darker color for better contrast */
+}
+
+/* Style for the select dropdown */
+.form-control {
+    width: 100%; /* Full width of the parent container */
+    padding: 5px; /* Padding for comfort */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #fff; /* White background for clarity */
+    font-size: 16px; /* Font size for readability */
+    color: #000000; /* Darker color for text for better visibility */
+    transition: border-color 0.3s; /* Smooth transition for border color on focus */
+}
+
+/* Style for the dropdown on focus */
+.form-control:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a slight shadow effect */
+}
+
+/* Style for the options in the dropdown */
+.form-control option {
+    padding: 10px; /* Padding for dropdown options */
+    color: #333; /* Darker color for option text */
+}
+
+/* Style for the default option */
+.form-control option[value=""] {
+    color: #888; /* Gray color for placeholder option */
+}
+h1{
+    color: white;
+}
+iframe{
+    display: none;
+}
+.searchButton{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    height: 45px;
+    width: 75px;
+    border-radius: 10px;
+}
+.searchButton:hover{
+    background-color: transparent;
+    color: rgb(243, 243, 243);
+}
+body{
+    background-color: rgb(233, 233, 255);
+}
+    </style>
+</head>
+<body>
+    <div id="sectionmain">
+        <nav class="navbar navbar-expand-lg navbar-light  fixed-top bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="https://i.postimg.cc/VNcBWXtX/bgv-D81726901741.png" class="food-munch-logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-link active" id="navItem1" href="#reviewsSection">
+                            Reviews
+                            <span class="sr-only">(current)</span>
+                        </a>
+                        <a class="nav-link" href="#rent" id="navItem2">Rent</a>
+                        <a class="nav-link" href="#buy" id="navItem3">Buy</a>
+                        
+                        <a class="nav-link" href="#pg" id="navItem4">PG</a>
+                        <a class="nav-link" href="/predict_price" id="navItem4" >Predict Price</a>
+                        <button id="post" class="postPropertyButton">Post Property</button>
+                        
+                        <button id="logout" class="logoutbutton">Logout</button>
+                        <button id="profile" class="profileButton"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="banner-section-bg-container pt-5 mt-4">
+            <div id="carouselExampleIndicators" class="carousel slide bg-container-corusel" data-ride="carousel" data-interval="5000">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://www.homegroup.org.uk/_next/image?url=https%3A%2F%2Fmedia.umbraco.io%2Fhome-group-heartcore%2Fbath2faz%2Fmill-o-mains-homes.jpg&w=3840&q=75" class="d-block w-100 img1" alt="...">
+                        <div class="carousel-caption d-none d-md-block text-center">
+                            <h5 class="display-4">Your Ideal Living Space Awaits</h5>
+                            <p class="lead">Explore beautiful homes in prime locations.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.avail.co/wp-content/uploads/2022/11/can-i-rent-my-house-out-if-i-still-have-a-mortgage.jpg" class="d-block w-100 img2" alt="...">
+                        <div class="carousel-caption d-none d-md-block text-center">
+                            <h5 class="display-4">Rent Your Dream Home</h5>
+                            <p class="lead">Find your next rental property with ease.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://cuhomerentals.com/wp-content/uploads/sites/16/2023/03/2303-Rocky-Lane-20230509-01-1024x683.jpg" class="d-block w-100 img3" alt="...">
+                        <div class="carousel-caption d-none d-md-block text-center">
+                            <h5 class="display-4">Explore Beautiful Homes</h5>
+                            <p class="lead">Your perfect living space is just a click away!</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        
+
+
+        <div id="google_translate_element" class="container text-center mt-5"></div>
+        <div class="searchcontainer mt-5">
+            <h1 class="text-center">Search for Rental Houses</h1>
+            <form id="searchForm" class="mt-4">
+                <div class="form-group">
+                    <label for="areaName">Enter Area Name:</label>
+                    <input type="text" id="areaName" name="areaName" class="form-control" placeholder="e.g., India" onkeyup="fetchSuggestions()" autocomplete="off" required>
+                    <div id="suggestions"></div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="propertyType">Select Property Type:</label>
+                    <select id="propertyType" name="propertyType" class="form-control" required>
+                        <option value="">-- Select --</option>
+                        <option value="buy">Buy</option>
+                        <option value="Rent">Rent</option>
+                        <option value="PG">PG</option>
+                    </select>
+                </div>
+        
+                <button type="submit" class="searchButton">Search</button>
+            </form>
+        
+            <div id="houseResults" class="mt-4">
+                <!-- Results will be shown here -->
+            </div>
+        </div>
+        <br>
+        <div id="rent" class="container section">
+            <h1 class="explore-section-heading text-center">Explore Properties for Rent</h1>
+            <div class="row">
+                {% for property in properties %}
+                    {% if property.purpose.lower() == 'rent' %}
+                        <div class="col-12 col-md-6 col-lg-3 col-xl-3 mb-4">
+                            <div class="card p-3 h-100">
+                                <img src="{{ property.image_urls[0] }}" class="card-img-top" alt="Property Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ property.Title }}</h5>
+                                    <p class="card-text">{{ property.description }}</p>
+                                    <p class="card-text"><strong>Purpose:</strong> {{ property.purpose }}</p>
+                                    <p class="card-text"><strong>Price:</strong> ₹{{ property.pricefrom }} Lakhs per Year - ₹{{ property.priceto }} Lakhs per year</p>
+                                    <p class="card-text"><strong>Location:</strong> {{ property.city }}, {{ property.state }}</p>
+                                    <button onclick="viewDetails('{{ property._id }}')" class="btn btn-info">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div id="buy" class="container section">
+            <h1 class="explore-section-heading text-center">Explore Properties for Buy</h1>
+            <div class="row">
+                {% for property in properties %}
+                    {% if property.purpose.lower() == 'buy' %}
+                        <div class="col-12 col-md-6 col-lg-3 col-xl-3 mb-4">
+                            <div class="card p-3 h-100">
+                                <img src="{{ property.image_urls[0] }}" class="card-img-top" alt="Property Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ property.Title }}</h5>
+                                    <p class="card-text">{{ property.description }}</p>
+                                    <p class="card-text"><strong>Purpose:</strong> {{ property.purpose }}</p>
+                                    <p class="card-text"><strong>Price:</strong> ₹{{ property.pricefrom }} Lakhs - ₹{{ property.priceto }} Lakhs</p>
+                                    <p class="card-text"><strong>Location:</strong> {{ property.city }}, {{ property.state }}</p>
+                                    <button onclick="viewDetails('{{ property._id }}')" class="btn btn-info">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div id="pg" class="container section">
+            <h1 class="explore-section-heading text-center">Explore PG Properties</h1>
+            <div class="row">
+                {% for property in properties %}
+                    {% if property.purpose == 'PG' %}
+                        <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+                            <div class="card p-3 mb-3">
+                                <img src="{{ property.image_urls[0] }}" class="card-img-top" alt="Property Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ property.Title }}</h5>
+                                    <p class="card-text">{{ property.description }}</p>
+                                    <p class="card-text"><strong>Purpose:</strong> {{ property.purpose }}</p>
+                                    <p class="card-text"><strong>Price:</strong> ₹{{ property.pricefrom }} - ₹{{ property.priceto }}</p>
+                                    <p class="card-text"><strong>Location:</strong> {{ property.city }}, {{ property.state }}</p>
+                                    <button onclick="viewDetails('{{ property._id }}')" class="btn btn-info">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        
+       
+    </div>
+        <div id="reviewsSection">
+            <div class="wcu-section pt-5 pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="wcu-section-heading">Reviews</h1>
+                            <p class="wcu-section-description">Top Business Personalities Have given their Reviews on our beloved products.
+                            </p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="wcu-section-card1 p-3 mb-3 ">
+                                <img src="https://imageio.forbes.com/specials-images/imageserve/5bb22ae84bbe6f67d2e82e05/0x0.jpg?format=jpg&crop=1012,1013,x627,y129,safe&height=416&width=416&fit=bounds" class="wcu-section-image" alt="" />
+                                <h1 class="card-heading mt-3">Jeff Bezos</h1>
+                                <p class="card-description">Really amazing rental house! I'm giving it a 4.5-star rating for its quality. You can trust this property for your stay. <br><span style="font-size:250%;color:#d9ad0f;">&starf;&starf;&starf;&starf;</span></p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="wcu-section-card2 p-3 mb-3">
+                                <img src="https://static01.nyt.com/images/2020/11/20/multimedia/00Gates-1/00Gates-1-superJumbo.jpg" class="wcu-section-image" alt="" />
+                                <h1 class="card-heading mt-3">Bill Gates</h1>
+                                <p class="card-description">Really amazing rental house! I'm giving it a 4.5-star rating for its quality. You can trust this property for your stay.<br><span style="font-size:250%;color:#d9ad0f;">&starf;&starf;&starf;&starf;</span></p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="wcu-section-card3 p-3 mb-3">
+                                <img src="https://i.guim.co.uk/img/media/3f6d39f213b18361c95ad0d4672ebf5680d19e7d/0_19_3500_2100/master/3500.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=eb570dd786c1a370ca16a41696279c26" class="wcu-section-image" alt="" />
+                                <h1 class="card-heading mt-3">Elon musk</h1>
+                                <p class="card-description">
+                                    Really amazing rental house! I'm giving it a 4.5-star rating for its quality. You can trust this property for your stay.<br><span style="font-size:250%;color:#d9ad0f;">&starf;&starf;&starf;&starf;</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="#section6">
+            <div class="thanking-customer-section pt-5 pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-7 d-flex flex-column justify-content-center">
+                            <h1 class="thanking-customers-section-heading">
+                                Thank you for being a valuable customer to us.
+                            </h1>
+                            <p class="thanking-customers-section-description">
+                                We have a surprise gift for you
+                            </p>
+                            <div class="d-md-none">
+                                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/thanking-customers-section-img.png" class="thanking-customers-section-img" />
+                            </div>
+                            <div class="button-section">
+                                
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-5 d-none d-md-block">
+                            <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/thanking-customers-section-img.png" class="thanking-customers-section-img" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="followUsSection">
+            <div class="follow-us-section pt-5 pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h1 class="follow-us-heading">Follow Us</h1>
+                        </div>
+                        <div class="col-12 d-flex flex-row justify-content-center">
+                            <div class="icons">
+                                <i class="fab fa-twitter icon" id="oneicon"></i>
+                            </div>
+                            <div class="icons">
+                                <i class="fab fa-instagram icon" id="twoicon"></i>
+                            </div>
+                            <div class="icons">
+                                <i class="fab fa-facebook icon" id="thirdicon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-section pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img src="https://i.postimg.cc/VNcBWXtX/bgv-D81726901741.png" class="food-munch-logo" />
+                        <h1 class="footer-section-mail-id">findmynest@findmynest.com</h1>
+                        <p class="footer-section-address">
+                            123 Ayur Vigyan Nagar, New Delhi, India.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+    <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+</body>
+
+<script>
+   function viewDetails(propertyId) {
+            if (propertyId) {
+                window.location.href = `/property/${propertyId}`;
+            } else {
+                console.error('Invalid property ID.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('searchForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const areaName = document.getElementById('areaName').value;
+                const propertyType = document.getElementById('propertyType').value;
+
+                fetch(`/search?areaName=${encodeURIComponent(areaName)}&propertyType=${encodeURIComponent(propertyType)}`)
+            .then(response => response.json())
+            .then(data => {
+                let results = '';
+                console.log(data); // For debugging
+                if (data.length > 0) {
+                    data.forEach(property => {
+                        results += `
+                            <div class="card mb-3">
+                                <img src="${property.image_urls}" class="card-img-top" alt="House Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">${property.bedrooms} BHK</h5>
+                                    <p class="card-text"><strong>Purpose:</strong> ${property.purpose || 'N/A'}</p>
+                                    <p class="card-text"><strong>Description:</strong> ${property.description || 'N/A'}</p>
+                                    <p class="card-text"><strong>Price:</strong> ${property.price_from} Lakhs - ${property.price_to} Lakhs</p>
+                                    <p class="card-text"><strong>Location:</strong> ${property.city || 'N/A'}, ${property.state || 'N/A'}</p>
+                                    <p class="card-text"><strong>Amenities:</strong> Balcony: ${property.balcony || 'N/A'}, School: ${property.school || 'N/A'}, Hospital: ${property.hospital || 'N/A'}, Transport: ${property.transport || 'N/A'}, Groceries Store: ${property.groceries_store || 'N/A'}, Police Station: ${property.policestation || 'N/A'}</p>
+                                    <button onclick="viewDetails('${property.product_id}')" class="btn btn-info">View Details</button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    results = '<p>No houses found for the given area.</p>';
+                }
+                document.getElementById('houseResults').innerHTML = results; // Display results
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                document.getElementById('houseResults').innerHTML = '<p>Failed to load properties. Please try again.</p>';
+            });
+    });
+        });
+
+
+async function fetchSuggestions() {
+            const query = document.getElementById('areaName').value;
+            if (query.length > 0) {
+                const response = await fetch(`/autocomplete?q=${query}`);
+                const suggestions = await response.json();
+                
+                let suggestionsList = '';
+                suggestions.forEach(name => {
+                    suggestionsList += `<div onclick="selectSuggestion('${name}')">${name}</div>`;
+                });
+
+                document.getElementById('suggestions').innerHTML = suggestionsList;
+            } else {
+                document.getElementById('suggestions').innerHTML = '';
+            }
+        }
+
+        function selectSuggestion(name) {
+            document.getElementById('areaName').value = name;
+            document.getElementById('suggestions').innerHTML = '';
+        }
+
+    document.getElementById('post').onclick = ()=>{
+        window.location.href = "/postproperty"
+    }
+    document.getElementById('logout').onclick = ()=>{
+        window.location.href = "/logout"
+    }
+    document.getElementById('profile').onclick = ()=>{
+        window.location.href = "/profile"
+    }
+    function viewDetails(propertyId) {
+            window.location.href = '/property/' + propertyId;
+        }
+</script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {
+                pageLanguage: 'en',
+                includedLanguages: 'zh-CN,cs,da,nl,en,et,fr,hi,te'
+            }, 
+            'google_translate_element'
+        );
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</html>

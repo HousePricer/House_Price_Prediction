@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Page</title>
+    <style>
+        /* General body styling */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://alive-studio.in/wp-content/uploads/2023/04/Bungalow.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Heading styling */
+        h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Button styling */
+        button {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.3);
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            box-shadow: 0px 6px 20px rgba(0, 86, 179, 0.4);
+        }
+
+        /* Card styling */
+        .card {
+            background-color: #ffffff;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* View button styling */
+        .btn-info {
+            background-color: #17a2b8;
+            border-radius: 20px;
+            padding: 8px 20px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(23, 162, 184, 0.4);
+        }
+
+        .btn-info:hover {
+            background-color: #138496;
+            box-shadow: 0px 6px 15px rgba(19, 132, 150, 0.5);
+        }
+
+        /* Layout styling */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .section {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .col-12, .col-md-6, .col-lg-3, .col-xl-3 {
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card-body {
+                padding: 15px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ id }}</h1>
+    <button id="signup-btn">Add Admin User</button>
+    <div id="rent" class="container section">
+        <h1 class="explore-section-heading">Your Requests</h1>
+        <div class="row">
+            {% for property in properties %}
+                <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card">
+                        <img src="{{ property.image_urls[0] }}" class="card-img-top" alt="Property Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ property.Title }}</h5>
+                            <p class="card-text">{{ property.description }}</p>
+                            <p class="card-text"><strong>Purpose:</strong> {{ property.purpose }}</p>
+                            <p class="card-text"><strong>Price:</strong> ₹{{ property.pricefrom }} Lakhs per Year - ₹{{ property.priceto }} Lakhs per year</p>
+                            <p class="card-text"><strong>Location:</strong> {{ property.city }}, {{ property.state }}</p>
+                            <button onclick="viewDetails('{{ property._id }}')" class="btn-info">View</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <button id="logout">LOGOUT</button>
+
+    <script>
+        document.getElementById('logout').onclick = () => {
+            window.location.href = "/adminlogout";
+        };
+        document.getElementById('signup-btn').onclick = () => {
+            window.location.href = "/adminsignup";
+        };
+        function viewDetails(propertyId) {
+            window.location.href = '/admin_requests/' + propertyId;
+        }
+    </script>
+</body>
+</html>

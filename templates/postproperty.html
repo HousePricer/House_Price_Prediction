@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+      body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-image: url('https://cdn-5.urmy.net/images/plans/DTE/bulk/4536/CleanShot-2022-01-17-at-16.13.42@2x.jpg');
+    color: #2e2e2e;
+    background-repeat: no-repeat;
+    background-size: cover;
+    line-height: 1.6;
+}
+
+.food-munch-logo {
+    width: 145px;
+    height: 55px;
+    margin-top: 6px;
+  
+}
+.navbar{
+  box-shadow: 2px 2px 10px rgb(0,0,0,0.2);
+}
+#navItem1:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem2:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem3:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem4:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem1 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem2 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem3 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem4 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+.banner-section-bg-container {
+    background-size: cover;
+
+}
+
+.banner-heading {
+    color: white;
+    font-family: "Roboto";
+    font-size: 45px;
+    font-weight: 300;
+}
+
+.banner-caption {
+    color: #f5f7fa;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 300;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin: 20px 0;
+    margin-top: 140px;
+}
+
+/* Form Container */
+form {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Sections */
+.section {
+    display: none;
+    margin-bottom: 30px;
+}
+
+.section.active {
+    display: block;
+}
+
+.section h3 {
+    border-bottom: 2px solid rgba(76, 175, 80, 0.8);
+    padding-bottom: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Inputs, Select, and Textarea */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.2);
+    color: #686868;
+    font-size: 16px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    border-color: rgba(0, 0, 0, 0.8);
+    outline: none;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 6px rgba(24, 27, 24, 0.5);
+}
+
+/* Buttons */
+.section button {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, rgba(2, 3, 2, 0.8), rgba(24, 24, 24, 0.8));
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.section button:hover {
+    background: linear-gradient(135deg, rgb(0, 0, 0), rgb(48, 48, 48));
+    transform: translateY(-2px);
+}
+
+.prev-btn {
+    background: linear-gradient(135deg, rgba(12, 10, 10, 0.8), rgba(23, 23, 23, 0.8));
+}
+
+.prev-btn:hover {
+    background: linear-gradient(135deg, rgb(16, 13, 13), rgb(33, 33, 33));
+}
+
+/* Custom Radio Buttons */
+.custom-radio {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom-radio .radio-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(14, 15, 14, 0.8);
+    background: rgba(0, 0, 0, 0.595);
+    margin-right: 10px;
+    position: relative;
+    color: #2e2e2e;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-radio .radio-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(27, 28, 27, 0.8);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: #2e2e2e;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+input[type="radio"]:checked + .radio-btn {
+    background: rgba(13, 18, 13, 0.8);
+    border-color: rgb(16, 19, 16);
+}
+
+input[type="radio"]:checked + .radio-btn::after {
+    opacity: 1;
+}
+
+.radio-text {
+    color: #343434;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="radio"]:checked + .radio-btn + .radio-text {
+    color: rgb(14, 14, 14);
+    transform: scale(1.05);
+}
+
+/* File Info */
+.file-info {
+    margin: 10px 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    margin: 20px 0;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: rgba(5, 7, 5, 0.8);
+}
+
+
+.disabled {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+        .logoutbutton{
+    margin-left: 15px;
+    background-color: #0f99d9;
+    border: 0px;
+    color: white;
+    border-radius: 5px;
+}
+.postPropertyButton{
+    background-color: rgb(0, 136, 255);
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.profileButton{
+    background-color: rgb(15, 111, 189);
+    color: rgb(255, 255, 255);
+    border: 0px;
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    border-radius: 50%; 
+    margin-left: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the icon */
+    cursor: pointer;
+}
+.postPropertyButton {
+    background: linear-gradient(135deg, #f4f4f4, #ffffff);
+    color: #2974dd;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid rgb(0, 125, 198);
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.postPropertyButton:hover {
+    background: linear-gradient(135deg, #f8f8f8, #ffffff);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    color: rgb(31, 101, 240);
+    transform: translateY(-2px);
+}
+
+/* Logout Button */
+.logoutbutton {
+    background: linear-gradient(135deg, #0b77e3, #119cfb);
+    color: #fff;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logoutbutton:hover {
+    background: linear-gradient(135deg, #0a68c2, #097ddb);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.profileButton:hover{
+    background-color: #ffffff;
+    color: rgb(0, 123, 255);
+    border: 1px solid rgb(0, 128, 255);
+}
+
+.preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .preview div {
+    border: 1px solid #ccc; /* Temporary border for visibility */
+    padding: 5px;
+}
+
+        .preview img {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+        .error {
+            color: red;
+        }
+        .next-btn{
+          background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+  <div id="sectionmain"></div>
+        <nav class="navbar navbar-expand-lg navbar-light  fixed-top bg-light">
+            <div class="container">
+              <a class="navbar-brand" href="/">
+                <img src="https://i.postimg.cc/VNcBWXtX/bgv-D81726901741.png" class="food-munch-logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-link active" id="navItem1" href="/">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                        <a class="nav-link" href="/#rent" id="navItem2">Rent</a>
+                        <a class="nav-link" href="/#buy" id="navItem3">Buy</a>
+                    
+                        <a class="nav-link" href="/#pg" id="navItem4">PG</a>
+                        <a class="nav-link" href="/predict_price" id="navItem4" >Predict Price</a>
+                        <button id="post" class="postPropertyButton">Post Property</button>
+                        
+                        <button id="logout" class="logoutbutton">Logout</button>
+                        <button id="profile" class="profileButton"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <h1>Start your journey {{ fullname }}</h1>
+    <form id="mainForm" action="/post" method="post" enctype="multipart/form-data">
+        <!-- Section 1 -->
+         
+        <div class="section" id="section1">
+          <h3>Owner Details</h3>
+        <input type="text" name="Ownername" placeholder="Enter Full Name" value="{{ fullname}}" disabled class="disabled">
+        <input type="email" name="Owneremail" placeholder="Enter Mail Id" value="{{ email }}" disabled class="disabled">
+        <input type="text" name="title" placeholder="Enter Title of your Buidling" required>
+
+        <button type="button" class="next-btn">Continue</button>
+    </div>
+
+          
+          
+          
+      
+        <!-- Section 2 -->
+        <div class="section" id="section2" style="display:none;">
+          
+          <h3>Purpose </h3>
+          <fieldset>
+            <legend>Choose Purpose:</legend>
+      
+            <label class="custom-radio">
+              <input type="radio" name="purpose" value="Rent" id="color-red">
+              <span class="radio-btn"></span>
+              <span class="radio-text">Rent</span>
+            </label>
+      
+            <label class="custom-radio">
+              <input type="radio" name="purpose" value="buy" id="color-blue">
+              <span class="radio-btn"></span>
+              <span class="radio-text">Buy</span>
+            </label>
+      
+           
+
+            <label class="custom-radio">
+              <input type="radio" name="purpose" value="PG" id="color-green">
+              <span class="radio-btn"></span>
+              <span class="radio-text">PG</span>
+            </label>
+      
+          </fieldset>
+          <button type="button" class="prev-btn">Previous</button>
+          <button type="button" class="next-btn">Next</button>
+        </div>
+      
+
+
+        <!-- Section 3 -->
+        <div class="section" id="section3" style="display:none;">
+          <h3>Location Details</h3>
+          <fieldset>
+            <legend>Select Your Location:</legend>
+            <label for="country">Country:</label>
+            <select id="country" name="country" onchange="fetchStates()">
+              <option value="">Select a country</option>
+              <!-- Country options will be populated here -->
+            </select>
+            <br>
+            <label for="state">State:</label>
+            <select id="state" name="state" onchange="fetchCities()">
+              <option value="">Select a state</option>
+              <!-- State options will be populated based on selected country -->
+            </select>
+            <br>
+            <label for="city">City:</label>
+            <select id="city" name="city" onchange="fetchsubcity()">
+              <option value="">Select a city</option>
+              <!-- City options will be populated based on selected state -->
+            </select>
+            <br>
+            <label for="sub-city">Sub-City:</label>
+            <select id="sub-city" name="sub_city" >
+              <option value="">Select a city</option>
+              <!-- Country options will be populated here -->
+            </select>
+          </fieldset>
+          <legend>Area1:</legend>
+          <input type="text" name="area1" placeholder="Enter Area1" required>
+          <legend>Area2:</legend>
+          <input type="text" name="area2" placeholder="Enter Area1">
+          <legend>Area3:</legend>
+          <input type="text" name="area3" placeholder="Enter Area2">
+          <legend>Do.no:</legend>
+          <input type="text" name="dono" placeholder="Enter Door Number" required>
+
+          <button type="button" class="prev-btn">Previous</button>
+          <button type="button" class="next-btn">Next</button>
+          
+        </div>
+
+        <div class="section" id="section4" style="display:none;">
+          
+            <h3>About House Details </h3>
+            <fieldset>
+              <legend>Add Bedrooms:</legend>
+        
+              <label class="custom-radio">
+                <input type="radio" name="bedrooms" value="1" id="color-red">
+                <span class="radio-btn"></span>
+                <span class="radio-text">1</span>
+              </label>
+        
+              <label class="custom-radio">
+                <input type="radio" name="bedrooms" value="2" id="color-blue">
+                <span class="radio-btn"></span>
+                <span class="radio-text">2</span>
+              </label>
+        
+              <label class="custom-radio">
+                <input type="radio" name="bedrooms" value="3" id="color-green">
+                <span class="radio-btn"></span>
+                <span class="radio-text">3</span>
+              </label>
+
+              <label class="custom-radio">
+                <input type="radio" name="bedrooms" value="4" id="color-green">
+                <span class="radio-btn"></span>
+                <span class="radio-text">4</span>
+              </label>
+
+            </fieldset><br><br>
+            <fieldset>
+                <legend>Add Bathrooms:</legend>
+          
+                <label class="custom-radio">
+                  <input type="radio" name="bathrooms" value="1" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">1</span>
+                </label>
+          
+                <label class="custom-radio">
+                  <input type="radio" name="bathrooms" value="2" id="color-blue">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">2</span>
+                </label>
+          
+                <label class="custom-radio">
+                  <input type="radio" name="bathrooms" value="3" id="color-green">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">3</span>
+                </label>
+  
+                <label class="custom-radio">
+                  <input type="radio" name="bathrooms" value="4" id="color-green">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">4</span>
+                </label>
+  
+              </fieldset><br><br>
+              <fieldset>
+                <legend>Is Balcony:</legend>
+          
+                <label class="custom-radio">
+                  <input type="radio" name="balcony" value="yes" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">Yes</span>
+                </label>
+          
+                <label class="custom-radio">
+                  <input type="radio" name="balcony" value="no" id="color-blue">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">No</span>
+                </label>
+
+              </fieldset>
+              <br><br>
+              <legend>Area in sq.ft:</legend>
+              <input type="text" placeholder="" name="area">
+            <button type="button" class="prev-btn">Previous</button>
+            <button type="button" class="next-btn">Next</button>
+          </div>
+
+          <div class="section" id="section5" style="display:none;">
+            <h3>Price(Ex:20,0000 - 40,0000): </h3>
+            <legend>Price starting from:</legend>
+            <input type="text" name="pricefrom" placeholder="price from">
+            <legend>Price ending with:</legend>
+            <input type="text" name="priceto" placeholder="price to">
+
+            <button type="button" class="prev-btn">Previous</button>
+            <button type="button" class="next-btn">Next</button>
+          </div>
+
+          <div class="section" id="section6" style="display:none;">
+          
+            <h3>About Amenities </h3>
+            <fieldset>
+              <legend>School:</legend>
+        
+              <label class="custom-radio">
+                <input type="radio" name="school" value="0-5" id="color-red">
+                <span class="radio-btn"></span>
+                <span class="radio-text">near 5km</span>
+              </label>
+        
+              <label class="custom-radio">
+                <input type="radio" name="school" value="5-10" id="color-blue">
+                <span class="radio-btn"></span>
+                <span class="radio-text">5km-10km</span>
+              </label>
+        
+              <label class="custom-radio">
+                <input type="radio" name="school" value="10-15" id="color-green">
+                <span class="radio-btn"></span>
+                <span class="radio-text">10km-15km</span>
+              </label>
+
+              <label class="custom-radio">
+                <input type="radio" name="school" value="none" id="color-green">
+                <span class="radio-btn"></span>
+                <span class="radio-text">none</span>
+              </label>
+
+            </fieldset><br><br>
+            <fieldset>
+                <legend>Hospital:</legend>
+          
+                <label class="custom-radio">
+                  <input type="radio" name="hospital" value="0-5" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">near 5Km</span>
+                </label>
+          
+                <label class="custom-radio">
+                    <input type="radio" name="hospital" value="5-10" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">5km-10km</span>
+                </label>
+          
+                <label class="custom-radio">
+                    <input type="radio" name="hospital" value="10-15" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">10km-15km</span>
+                </label>
+
+                <label class="custom-radio">
+                  <input type="radio" name="hospital" value="none" id="color-green">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">none</span>
+                </label>
+
+              </fieldset><br><br>
+
+
+              <fieldset>
+                <legend>Railway Sation/Air port/Bus stand:</legend>
+          
+                <label class="custom-radio">
+                  <input type="radio" name="transport" value="0-5" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">near 5Km</span>
+                </label>
+          
+                <label class="custom-radio">
+                    <input type="radio" name="transport" value="5-10" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">5km-10km</span>
+                </label>
+          
+                <label class="custom-radio">
+                    <input type="radio" name="transport" value="10-15" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">10km-15km</span>
+                </label>
+
+                <label class="custom-radio">
+                  <input type="radio" name="transport" value="none" id="color-green">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">none</span>
+                </label>
+                
+              </fieldset><br><br>
+              <fieldset>
+                <legend>Shopping Malls/Super Markets</legend>
+          
+                <label class="custom-radio">
+                  <input type="radio" name="groceries_store" value="0-5" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">near 5Km</span>
+                </label>
+          
+                <label class="custom-radio">
+                    <input type="radio" name="groceries_store" value="5-10" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">5km-10km</span>
+                </label>
+          
+                <label class="custom-radio">
+                    <input type="radio" name="groceries_store" value="10-15" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">10km-15km</span>
+                </label>
+
+                <label class="custom-radio">
+                  <input type="radio" name="groceries_store" value="none" id="color-green">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">none</span>
+                </label>
+                
+              </fieldset><br><br>
+              <fieldset>
+                <legend>Police Station:</legend>
+          
+                <label class="custom-radio">
+                  <input type="radio" name="policestation" value="0-5" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">near 5Km</span>
+                </label>
+          
+                <label class="custom-radio">
+                    <input type="radio" name="policestation" value="5-10" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">5km-10km</span>
+                </label>
+          
+                <label class="custom-radio">
+                    <input type="radio" name="policestation" value="10-15" id="color-red">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">10km-15km</span>
+                </label>
+
+                <label class="custom-radio">
+                  <input type="radio" name="policestation" value="none" id="color-green">
+                  <span class="radio-btn"></span>
+                  <span class="radio-text">none</span>
+                </label>
+
+              </fieldset><br><br>
+
+            <button type="button" class="prev-btn">Previous</button>
+            <button type="button" class="next-btn">Next</button>
+          </div>
+
+          <div class="section" id="section7" style="display:none;">
+            
+            <legend>Description:</legend>
+            <textarea id="photoDescription" name="description" maxlength="300" placeholder="Enter a description for your photo" rows="4" cols="50"></textarea>
+
+            <button type="button" class="prev-btn">Previous</button>
+            <button type="button" class="next-btn">Next</button>
+          </div>
+          
+          <div class="section" id="section8" style="display:none;">
+            <h3>Upload Photos (Max 3 Images)</h3>
+            
+            <input type="file" name="photo1" id="filer_input1" accept="image/*" onchange="handleFile(this, 1)">
+            <div id="file1-preview-container"></div>
+        
+            <input type="file" name="photo2" id="filer_input2" accept="image/*" onchange="handleFile(this, 2)">
+            <div id="file2-preview-container"></div>
+        
+            <input type="file" name="photo3" id="filer_input3" accept="image/*" onchange="handleFile(this, 3)">
+            <div id="file3-preview-container"></div>
+        
+            <div class="error-message" id="error-message" style="color: red;"></div> <!-- Error message display -->
+        
+            <button type="button" class="prev-btn">Previous</button>
+            <button type="submit">Submit</button>
+        </div>
+        
+        
+
+
+      </form>
+      
+</body>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.section');
+    let currentSectionIndex = 0;
+
+    function showSection(index) {
+      sections.forEach((section, i) => {
+        section.style.display = i === index ? 'block' : 'none';
+      });
+    }
+
+    showSection(currentSectionIndex);
+
+    document.querySelectorAll('.next-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        if (validateSection(currentSectionIndex)) {
+          currentSectionIndex++;
+          if (currentSectionIndex < sections.length) {
+            showSection(currentSectionIndex);
+          }
+        }
+      });
+    });
+
+    document.querySelectorAll('.prev-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        if (currentSectionIndex > 0) {
+          currentSectionIndex--;
+          showSection(currentSectionIndex);
+        }
+      });
+    });
+
+    function validateSection(index) {
+      const section = sections[index];
+      const inputs = section.querySelectorAll('input');
+      let valid = true;
+      inputs.forEach(input => {
+        if (!input.checkValidity()) {
+          valid = false;
+        }
+      });
+      return valid;
+    }
+  });
+  const username = 'naveen2308'; // Geonames API username
+
+async function fetchCountries() {
+  try {
+    const response = await fetch(`http://api.geonames.org/countryInfoJSON?username=${username}`);
+    const data = await response.json();
+    
+    const countrySelect = document.getElementById('country');
+    countrySelect.innerHTML = '<option value="">Select a country</option>'; // Clear existing options
+
+    data.geonames.forEach(country => {
+      const option = document.createElement('option');
+      option.value = country.countryName; // Use geonameId as value
+      option.textContent = country.countryName; // Display name
+      option.setAttribute('data-geonameid', country.geonameId); // Set custom data attribute
+      countrySelect.appendChild(option);
+    });
+  } catch (error) {
+    console.error('Error fetching countries:', error);
+  }
+}
+
+async function fetchStates() {
+  const countrySelect = document.getElementById('country');
+  const countryId = countrySelect.options[countrySelect.selectedIndex]?.getAttribute('data-geonameid');
+  
+  if (!countryId) {
+    document.getElementById('state').innerHTML = '<option value="">Select a state</option>';
+    document.getElementById('city').innerHTML = '<option value="">Select a city</option>';
+    document.getElementById('sub-city').innerHTML = '<option value="">Select a sub-city</option>'; // Reset sub-city dropdown
+    return;
+  }
+  
+  try {
+    const response = await fetch(`http://api.geonames.org/childrenJSON?geonameId=${countryId}&username=${username}`);
+    const data = await response.json();
+    
+    const stateSelect = document.getElementById('state');
+    stateSelect.innerHTML = '<option value="">Select a state</option>'; // Clear existing options
+    data.geonames.forEach(state => {
+      const option = document.createElement('option');
+      option.value = state.name; // Use geonameId as value
+      option.textContent = state.name; // Display name
+      option.setAttribute('data-geonameid', state.geonameId); // Set custom data attribute
+      stateSelect.appendChild(option);
+    });
+
+    // Reset city and sub-city dropdowns
+    document.getElementById('city').innerHTML = '<option value="">Select a city</option>';
+    document.getElementById('sub-city').innerHTML = '<option value="">Select a sub-city</option>';
+  } catch (error) {
+    console.error('Error fetching states:', error);
+  }
+}
+
+async function fetchCities() {
+  const stateSelect = document.getElementById('state');
+  const stateId = stateSelect.options[stateSelect.selectedIndex]?.getAttribute('data-geonameid');
+  
+  if (!stateId) {
+    document.getElementById('city').innerHTML = '<option value="">Select a city</option>';
+    document.getElementById('sub-city').innerHTML = '<option value="">Select a sub-city</option>'; // Reset sub-city dropdown
+    return;
+  }
+  
+  try {
+    const response = await fetch(`http://api.geonames.org/childrenJSON?geonameId=${stateId}&username=${username}`);
+    const data = await response.json();
+    
+    const citySelect = document.getElementById('city');
+    citySelect.innerHTML = '<option value="">Select a city</option>'; // Clear existing options
+    data.geonames.forEach(city => {
+      const option = document.createElement('option');
+      option.value = city.name; // Use geonameId as value
+      option.textContent = city.name; // Display name
+      option.setAttribute('data-geonameid', city.geonameId); // Set custom data attribute
+      citySelect.appendChild(option);
+    });
+
+    // Reset sub-city dropdown
+    document.getElementById('sub-city').innerHTML = '<option value="">Select a sub-city</option>';
+  } catch (error) {
+    console.error('Error fetching cities:', error);
+  }
+}
+
+async function fetchSubCities() {
+  const citySelect = document.getElementById('city');
+  const cityId = citySelect.options[citySelect.selectedIndex]?.getAttribute('data-geonameid');
+  
+  if (!cityId) {
+    document.getElementById('sub-city').innerHTML = '<option value="">Select a sub-city</option>';
+    return;
+  }
+  
+  try {
+    const response = await fetch(`http://api.geonames.org/childrenJSON?geonameId=${cityId}&username=${username}`);
+    const data = await response.json();
+    
+    const subCitySelect = document.getElementById('sub-city');
+    subCitySelect.innerHTML = '<option value="">Select a sub-city</option>'; // Clear existing options
+    data.geonames.forEach(subCity => {
+      const option = document.createElement('option');
+      option.value = subCity.name; // Use geonameId as value
+      option.textContent = subCity.name; // Display name
+      option.setAttribute('data-geonameid', subCity.geonameId); // Set custom data attribute
+      subCitySelect.appendChild(option);
+    });
+  } catch (error) {
+    console.error('Error fetching sub-cities:', error);
+  }
+}
+
+// Initialize the country dropdown when the page loads
+window.onload = fetchCountries;
+
+// Add event listeners for the dropdowns to fetch states/cities/sub-cities
+document.getElementById('country').addEventListener('change', fetchStates);
+document.getElementById('state').addEventListener('change', fetchCities);
+document.getElementById('city').addEventListener('change', fetchSubCities);
+
+
+     document.getElementById('logout').onclick = ()=>{
+        window.location.href = "/logout"
+    }
+    document.getElementById('profile').onclick = ()=>{
+        window.location.href = "/profile"
+    }
+    document.getElementById('post').onclick = ()=>{
+        window.location.href = "/postproperty"
+    }
+
+    function handleFile(input, index) {
+    const maxFiles = 3;
+
+    // Get the corresponding preview container
+    const previewContainer = document.getElementById(`file${index}-preview-container`);
+    const errorMessage = document.getElementById('error-message');
+
+    // Clear previous previews and error messages
+    previewContainer.innerHTML = '';
+    errorMessage.textContent = '';
+
+    const file = input.files[0];
+
+    if (file) {
+        if (!file.type.startsWith('image/')) { 
+            errorMessage.textContent = 'Only image files are allowed.';
+            input.value = ''; // Clear the input
+            return;
+        }
+
+        const img = document.createElement("img");
+        img.classList.add("obj");
+        img.file = file;
+        img.style.width = "150px";
+        img.style.height = "150px";
+        img.style.margin = "10px";
+
+        const reader = new FileReader();
+        reader.onload = (function(aImg) { 
+            return function(e) { 
+                aImg.src = e.target.result; 
+                previewContainer.appendChild(aImg); // Append the image to the respective container
+            }; 
+        })(img);
+
+        reader.readAsDataURL(file);
+    }
+}
+
+
+
+
+</script>
+</html>

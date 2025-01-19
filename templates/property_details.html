@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+    <style>
+        /* Include the updated CSS here */
+        /* General body styling with background color */
+        @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f2f2f2, #ffffff);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.food-munch-logo {
+    width: 145px;
+    height: 55px;
+    margin-top: 6px;
+  
+}
+#navItem1:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem2:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem3:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem4:hover {
+    color: black;
+    font-weight: 500;
+}
+
+#navItem1 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem2 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem3 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+#navItem4 {
+    color: #323f4b;
+    font-family: "Roboto";
+}
+
+/* Container for the content */
+.containe {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border: 1px solid #E0E0E0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* For gradient overlay */
+    overflow: hidden; /* To clip gradient overlay */
+    margin-top: 140px;
+}
+
+.containe:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient overlay on image */
+.containe .image {
+    flex: 1;
+    margin-right: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.containe .image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.containe .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.containe .image:hover::before {
+    opacity: 0; /* Remove gradient overlay on hover */
+}
+
+.containe .image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.49);
+}
+
+/* Content styling */
+.containe .content {
+    flex: 2;
+    position: relative;
+    z-index: 1; /* Ensure content is above the gradient overlay */
+}
+
+.containe .content h1 {
+    color: #1F8A70;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.containe .content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 15px 0;
+    color: #666;
+    position: relative;
+    z-index: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.containe .content p:hover {
+    color: #333; /* Slight color change on hover */
+    transform: translateX(2px); /* Slight movement effect */
+}
+
+.containe .content p strong {
+    color: #1F8A70;
+    font-weight: 600;
+}
+
+.containe .content a {
+    color: #1F8A70;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.containe .content a:hover {
+    color: #145A32;
+    text-decoration: underline;
+}
+
+/* Button styling */
+.content button {
+    padding: 14px 28px;
+    background-color: #1F8A70;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #145A32;
+    transform: scale(1.05);
+}
+
+.logoutbutton{
+    margin-left: 5px;
+    background-color: #0f99d9;
+    border: 0px;
+    color: white;
+    border-radius: 5px;
+}
+.postPropertyButton{
+    background-color: rgb(0, 136, 255);
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+}
+.profileButton{
+    background-color: rgb(0, 115, 128);
+    color: white;
+    border: 0px;
+    margin-left: 3px;
+    border-radius: 5px;
+}
+.postPropertyButton:hover{
+    background-color: #1b6dc0;
+}
+.logoutbutton:hover{
+    background-color: #0b77e3;
+}
+.profileButton:hover{
+    background-color: #00889d;
+}
+.property-list .card-title{
+    font-size: 10px;
+}
+.card-body .card-title{
+    font-size: 35px;
+}
+.logoutbutton{
+    margin-left: 5px;
+    background-color: #0f99d9;
+    border: 0px;
+    color: white;
+    border-radius: 5px;
+}
+.logoutbutton:hover{
+    background-color: #0b77e3;
+}
+
+#propertyCarousel {
+            margin: 20px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .carousel-item img {
+            height: 400px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the container without stretching */
+        }
+       
+.content{
+    margin-top: 100px;
+}
+.carousel-item {
+    height: 500px; /* Adjust the height as needed */
+}
+
+.carousel-item img {
+    height: 100%; /* Make the image take the full height of the carousel item */
+    width: 100%; /* Make the image take the full width of the carousel item */
+    object-fit: cover; /* Cover the entire item while maintaining the aspect ratio */
+}
+.carousel-caption {
+ 
+    bottom: 26px; /* Adjust as needed */
+    left: 0px;   /* Adjust as needed */
+    color: black; /* Change text color if needed */
+   
+    text-align: left;
+
+   
+}
+.text-background {
+    display: inline-block; /* Make the background fit the text */
+    background-color: rgba(255, 255, 255, 0.7); /* White background with 70% opacity */
+    padding: 10px 15px; /* Add some padding around the text */
+    border-radius: 5px; /* Optional: rounded corners */
+    color: black; /* Ensure the text color is visible */
+    font-weight: 600;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    
+    <input type="text" id="email" value="{{ property.Owneremail }}" hidden>
+    <div id="sectionmain"></div>
+        <nav class="navbar navbar-expand-lg navbar-light  fixed-top bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="https://i.postimg.cc/VNcBWXtX/bgv-D81726901741.png" class="food-munch-logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-link active" id="navItem1" href="/">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                        <a class="nav-link" href="/#rent" id="navItem2">Rent</a>
+                        <a class="nav-link" href="/#buy" id="navItem3">Buy</a>
+                       
+                        <a class="nav-link" href="/#pg" id="navItem4">PG</a>
+                        {% if email %}
+                        <!-- Show these buttons if 'email' is not empty -->
+                        <button id="post" class="postPropertyButton">Post Property</button>
+                        
+                        <button id="logout" class="logoutbutton">Logout</button>
+                        <button id="profile" class="profileButton">Profile</button>
+                        {% else %}
+                        <!-- Show this button if 'email' is empty -->
+                        <button id="login" class="logoutbutton">Login</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="content">
+                <div id="propertyCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for image_url in property.image_urls %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <img src="{{ image_url }}" class="img-fluid" alt="Property Image">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="text-background">
+                                        <h1>{{ property.Title }}</h1>
+                                    </div>
+                                </div>                                
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#propertyCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#propertyCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    
+                    <!-- Button positioned at the bottom right of the carousel -->
+                    <div class="carousel-caption d-none d-md-block">
+                        {% if email %}
+                        <button id="ownerdetails" class="btn btn-primary" style="position: absolute; bottom: 25px; right: -120px;">View Owner Details</button>
+                        {% else %}
+                        <p style="position: absolute; bottom: 10px; right: -120px;background-color: #1F8A70; padding: 5px;border-radius: 10px; ">To view owner details, please <a href="/login">login</a>.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                
+                <p style="text-align: justify;">{{ property.description }}</p>
+                <p><strong>Purpose:</strong> {{ property.purpose }}</p>
+                <p><strong>Location:</strong> {{ property.city }}, {{ property.state }}, {{ property.country }}</p>
+                <p><strong>Price Range:</strong> {{ property.pricefrom }} - {{ property.priceto }} (in Lakhs)</p>
+                <p><strong>Bedrooms:</strong> {{ property.bedrooms }}</p>
+                <p><strong>Bathrooms:</strong> {{ property.bathrooms }}</p>
+                <p><strong>Balcony:</strong> {{ property.balcony }}</p>
+                <p><strong>Amenities:</strong>
+                    {% set amenities = [] %}
+                    {% if property.hospital != 'none' %} {% set amenities = amenities + ['Hospital'] %} {% endif %}
+                    {% if property.transport != 'none' %} {% set amenities = amenities + ['Transport support'] %} {% endif %}
+                    {% if property.groceries_store != 'none' %} {% set amenities = amenities + ['Stores'] %} {% endif %}
+                    {% if property.policestation != 'none' %} {% set amenities = amenities + ['Police station'] %} {% endif %}
+                    {{ amenities | join(', ') }}
+                </p>
+                
+            </div>
+        </div>
+    
+        <div class="modal fade" id="ownerDetailsModal" tabindex="-1" role="dialog" aria-labelledby="ownerDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ownerDetailsModalLabel">Owner Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Owner Name:</strong> {{ property.Ownername }}</p>
+                        <p><strong>Email:</strong> {{ property.Owneremail }}</p>
+                        <p><strong>Phone:</strong> {{ property.Ownerphone }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<!-- Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    
+    $(document).ready(function() {
+        $('#ownerdetails').on('click', function() {
+            $('#ownerDetailsModal').modal('show');
+        });
+    });
+    document.getElementById('ownerdetails'.onclick = ()=>{
+        email = document.getElementById('email').value;
+        
+    })
+    document.getElementById('login').onclick = ()=>{
+        window.location.href = "/login"
+    }
+    document.getElementById('logout').onclick = ()=>{
+        window.location.href = "/logout"
+    }
+    document.getElementById('profile').onclick = ()=>{
+        window.location.href = "/profile"
+    }
+    document.getElementById('post').onclick = ()=>{
+        window.location.href = "/postproperty"
+    }
+    
+        
+</script>
+</html>
